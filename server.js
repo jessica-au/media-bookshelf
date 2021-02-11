@@ -12,6 +12,7 @@ app.set('view engine', 'ejs');
 // Secret Session here
 const SECRET_SESSION = process.env.SECRET_SESSION;
 
+// MIDDLEWARE
 app.use(require('morgan')('dev'));
 app.use(express.urlencoded({ extended: false }));
 app.use(express.static(__dirname + '/public'));
@@ -29,6 +30,17 @@ const sessionObject = {
   saveUninitialized: true
 }
 app.use(session(sessionObject));
+// Passport
+app.use(passport.initialize()); // Initialize passport
+app.use(passport.session()); // Add a session
+// Flash 
+app.use(flash());
+app.use((req, res, next) => {
+  console.log(res.locals);
+  res.locals.alerts = req.flash();
+  res.locals.currentUser = req.user;
+  next();
+});
 
 // Controllers
 app.use('/auth', require('./controllers/auth'));
