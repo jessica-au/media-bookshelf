@@ -1,5 +1,5 @@
 const express = require('express');
-const passport = require('passport');
+const passport = require('../config/ppConfig');
 const router = express.Router();
 
 // import database
@@ -11,6 +11,12 @@ router.get('/signup', (req, res) => {
 
 router.get('/login', (req, res) => {
   res.render('auth/login'); // this is a form
+});
+
+router.get('/logout', (req, res) => {
+  req.logOut(); // logs the user out of the session
+  req.flash('success', 'Logging out... See you next time!');
+  res.redirect('/');
 });
 
 
@@ -33,7 +39,7 @@ router.post('/signup', (req, res) => {
         successFlash: `Welcome ${user.name}. Account was created and logging in...`
       }
       // passport authenicate
-      passport.authenticate('local', successObject);
+      passport.authenticate('local', successObject)(req, res);
     } else {
       // Send back email already exists
       req.flash('error', 'Email already exists');
