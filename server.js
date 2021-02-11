@@ -45,8 +45,6 @@ app.use((req, res, next) => {
 
 // Controllers
 app.use('/auth', require('./controllers/auth'));
-app.use('/basketball', require('./controllers/basketball'));
-app.use('/football', require('./controllers/football'));
 
 app.get('/', (req, res) => {
   res.render('index');
