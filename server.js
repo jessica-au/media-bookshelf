@@ -2,7 +2,7 @@ require('dotenv').config();
 const express = require('express');
 const layouts = require('express-ejs-layouts');
 const session = require('express-session');
-//------- import passport Config, come back later....
+const passport = require('./config/ppConfig'); //
 const flash = require('connect-flash');
 
 
@@ -16,6 +16,20 @@ app.use(require('morgan')('dev'));
 app.use(express.urlencoded({ extended: false }));
 app.use(express.static(__dirname + '/public'));
 app.use(layouts);
+
+// Session Middleware
+
+// secret: What we actually will be giving the user on our site as a session cookie
+// resave: Save the session even if it's modified, make this false
+// saveUninitialized: If we have a new session, we save it, therefore making that true
+
+const sessionObject = {
+  secret: SECRET_SESSION,
+  resave: false,
+  saveUninitialized: true
+}
+app.use(session(sessionObject));
+
 // Controllers
 app.use('/auth', require('./controllers/auth'));
 
