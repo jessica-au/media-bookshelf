@@ -9,8 +9,9 @@ const flash = require('connect-flash');
 const app = express();
 app.set('view engine', 'ejs');
 
-// Secret Session here
+// Session 
 const SECRET_SESSION = process.env.SECRET_SESSION;
+const isLoggedIn = require('./middleware/isLoggedIn');
 
 // MIDDLEWARE
 app.use(require('morgan')('dev'));
@@ -44,6 +45,8 @@ app.use((req, res, next) => {
 
 // Controllers
 app.use('/auth', require('./controllers/auth'));
+app.use('/basketball', require('./controllers/basketball'));
+app.use('/football', require('./controllers/football'));
 
 app.get('/', (req, res) => {
   res.render('index');
@@ -59,3 +62,18 @@ const server = app.listen(PORT, () => {
 });
 
 module.exports = server;
+
+
+
+// espn.com
+
+// basketball/college
+// basketball/nba
+// basketball/gleague
+// basketball/europe
+
+// football
+// baseball
+// ...
+
+
