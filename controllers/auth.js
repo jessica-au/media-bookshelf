@@ -50,6 +50,7 @@ router.post('/signup', (req, res) => {
     console.log('**************Error');
     console.log(error);
     req.flash('error', 'Either email or password is incorrect. Please try again.');
+    res.redirect('/auth/signup');
   });
 });
 
