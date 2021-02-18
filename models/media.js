@@ -1,6 +1,6 @@
 'use strict';
 const {
-  Model
+  Model, INTEGER
 } = require('sequelize');
 module.exports = (sequelize, DataTypes) => {
   class media extends Model {
@@ -16,7 +16,8 @@ module.exports = (sequelize, DataTypes) => {
   };
   media.init({
     mediaName: DataTypes.STRING,
-    mediaUrl: DataTypes.STRING
+    mediaUrl: DataTypes.STRING,
+    userId: DataTypes.INTEGER
   }, {
     sequelize,
     modelName: 'media',
