@@ -1,47 +1,67 @@
- nav {
-  position: absolute;
-  width: 1440px;
-  height: 100px;
-  left: 0px;
-  top: 0px;
-  
-  background: #EBA947;
- }
+nav {
+position: absolute;
+width: 100%;
+height: 70px;
+left: 0px;
+top: 0px;
+background: #EBA947;
+}
  
- ul li {
-  position: relative;
-width: 300px;
-height: 53px;
-left: 80%;
-top: 10%;
+ul li {
 
+float: left;
+display: inline;
+position: relative;
+padding: 5px;
+margin-left: 20px;
+height: 80px;
 font-family: Fugaz One, cursive;
 font-style: normal;
 font-weight: normal;
-font-size: 32px;
-line-height: 53px;
-/* identical to box height */
+font-size: 24px;
+line-height: 30px;
 
-
-color: #FFFFFF;
 }
 
 h1 {
   color:darkcyan
 }
 
-h2 {
-position: relative;
-width: 800px;
-height: 84px;
+h3 {
+position: absolute;
+width: 100%;
+height: 40px;
 left: 5%;
 top: 2%;
-
 font-family: Fugaz One, cursive;
 font-style: normal;
 font-weight: normal;
 font-size: 42px;
-line-height: 70px;
-
+line-height: 10px;
 color: #FFFFFF;
+}
+
+.usernav {
+position: absolute;
+left: 0px;
+top: 0px;
+width: 100%;
+height: 55px;
+left: 0px;
+top: 70px;
+background: #7EE1F7;
+float: left;
+}
+
+li a {
+  display: block;
+}
+
+.loginnav {
+  float: right;
+}
+
+.bodyElements {
+  margin-top: 300px;
+  
 }

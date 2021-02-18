@@ -14,8 +14,8 @@
     <%- include('partials/alerts') %>
     <header>
       <nav>
-        <h2>Bin Media Res</h2>
-        <ul>
+        <h3>Bin Media Res</h3>
+        <ul class="loginnav">
           <% if (!currentUser) {%>
             <li><a href="/auth/signup">Signup</a></li>
             <li><a href="/auth/login">Login</a></li>
@@ -24,9 +24,16 @@
           <li><a href="/profile">Profile</a></li>
           <% } %>
         </ul>
+      
       </nav>
+    
     </header>
-    <h1>Bin Media Res</h1>
-    <%- body %>
+    <div class="usernav">
+      <ul>
+        <li><a href="/profile">my profile</a></li>
+        <li><a href="/categories">my media bins</a></li>
+      </ul>
+    </div>
+    <div class="bodyElements"><%- body %> </div>
   </body>
 </html>
