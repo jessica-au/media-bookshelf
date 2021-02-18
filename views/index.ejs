@@ -1,1 +1,6 @@
-<h2>Homepage</h2>
+<h3>Homepage</h3>
+        <div class="results">   
+    <% podcastResults.forEach(function(podcastResults) { %>
+     <a href="<%= podcastResults.audio %>"><%=podcastResults.title_original %></a><br>
+           <% }); %>
+         </div>

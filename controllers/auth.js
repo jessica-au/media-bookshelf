@@ -20,6 +20,7 @@ router.get('/logout', (req, res) => {
 });
 
 
+
 // What routes do we need (post routes)
 router.post('/signup', (req, res) => {
   // we now have access to the user info (req.body);
