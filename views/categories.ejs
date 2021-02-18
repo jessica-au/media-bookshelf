@@ -10,4 +10,11 @@
           <button type="submit">Add to Existing Category</button>
         </form>
       </div>
+
+      <div class="results">   
+          <h1>Your current Favorites</h1>
+        <% podcastResults.forEach(function(podcastResults) { %>
+         <a href="<%= podcastResults.audio %>"><%= podcastResults.title_original %></a><br>
+               <% }); %>
+             </div>
   </div>
