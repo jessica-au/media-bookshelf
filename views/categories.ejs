@@ -6,10 +6,16 @@
       <div class="well">
        
         <form method="POST" action="/categories">
-          <input hidden type="text" name="name" value="sdf">
-          <button type="submit">Add to Existing Category</button>
+          <input type="text" name="category">
+          <input hidden type="text" name="userId" value="<% user.id %>">
+          <button type="submit">Create Category</button>
         </form>
+        <!-- what do i do with this button??????????????????? -->
       </div>
+      <% categories.forEach(function(category) { %>
+        <%= category.name %></a>
+              <% }); %>
+            </div>
 
       <div class="results">   
           <h1>Your current Favorites</h1>

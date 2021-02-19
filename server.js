@@ -57,36 +57,11 @@ app.get('/profile', isLoggedIn, (req, res) => {
 });
 
 
-// GET / - main index of site
-// app.get('/', async (req, res) => {
-//   try {
-//     var listenNotesUrl = 'https://listen-api.listennotes.com/api/v2';
-//     let response = await unirest.get('https://listen-api.listennotes.com/api/v2/search?q=star%20wars')
-//       .header('X-ListenAPI-Key', 'c61dffbeb6c54d508b1f8b24caa1c986')
-//     response = await response.toJSON();
-//     let podcastResults = response.body.results;
-//     console.log(podcastResults[0])
-//     res.render('categories', {podcastResults})
-//   } catch (e) {
-//     console.log(e)
-//   }
-  //res.send(response);
-
-  // Use request to call the API
-  // axios.get('https://listen-api.listennotes.com/api/v2/search?q=star%20wars', {
-  //   headers: {
-  //     'X-ListenAPI-Key': 'c61dffbeb6c54d508b1f8b24caa1c986',
-  //   }
-  // }).then(function (apiResponse) {
-  //   console.log(apiResponse)
-  //   var podcast = apiResponse.data.results;
-  //   res.render('index', { });
-  // })
-// });
-
 // Imports all routes from the auth routes file
 app.use('/auth', require('./controllers/auth'));
+
 app.use('/categories', require('./controllers/categories'));
+
 
 
 const PORT = process.env.PORT || 3000;
