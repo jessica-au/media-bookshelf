@@ -11,6 +11,7 @@ const app = express();
 app.set('view engine', 'ejs');
 
 // Session 
+const APIKEY = process.env.APIKEY
 const SECRET_SESSION = process.env.SECRET_SESSION;
 const isLoggedIn = require('./middleware/isLoggedIn');
 

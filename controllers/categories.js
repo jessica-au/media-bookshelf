@@ -1,6 +1,7 @@
 const express = require('express');
 const router = express.Router();
 const unirest = require('unirest');
+dotenv.config()
 
 // import database
 const db = require('../models');
@@ -14,7 +15,7 @@ router.get('/', async (req, res) => {
     try {
         var listenNotesUrl = 'https://listen-api.listennotes.com/api/v2';
         let response = await unirest.get('https://listen-api.listennotes.com/api/v2/search?q=star%20wars')
-            .header('X-ListenAPI-Key', 'c61dffbeb6c54d508b1f8b24caa1c986')
+            .header('X-ListenAPI-Key', APIKEY)
         response = await response.toJSON();
         let podcastResults = response.body.results;
         // use the passport helper to pass a user to render
