@@ -1,7 +1,7 @@
 const express = require('express');
 const router = express.Router();
 const unirest = require('unirest');
-dotenv.config()
+require('dotenv').config();
 
 // import database
 const db = require('../models');
