@@ -1,26 +1,36 @@
 <div class="container">
     <h1 class="text-center">Your Podcast Categories</h1>
     <p class="text-center">
-      <a href="/categories">Favorites</a>
+        <a href="/categories">Favorites</a>
     </p>
-      <div class="well">
-       
-        <form method="POST" action="/categories">
-          <input type="text" name="category">
-          <input hidden type="text" name="userId" value="<% user.id %>">
-          <button type="submit">Create Category</button>
-        </form>
-        <!-- what do i do with this button??????????????????? -->
-      </div>
-      <% categories.forEach(function(category) { %>
-        <%= category.name %></a>
-              <% }); %>
-            </div>
+    <div class="createCategories">
 
-      <div class="results">   
-          <h1>Your current Favorites</h1>
-        <% podcastResults.forEach(function(podcastResults) { %>
-         <a href="<%= podcastResults.audio %>"><%= podcastResults.title_original %></a><br>
-               <% }); %>
-             </div>
-  </div>
+        <form method="POST" action="/categories">
+            <input type="text" name="category">
+            <button type="submit">Create Category</button>
+        </form>
+        
+    </div>
+   <ol> <% categories.forEach(function(category) { %>
+        <li><%= category.name %></a></li>
+            <% }); %>
+        </ol> 
+</div>
+
+
+<h1>Search Results</h1>
+<div id="searchwrap">
+    <form id="search-form" name="Podcasts" action="/categories" method="get">
+        <input id="search-input" name="Search" type="text">
+        <button type="submit">Search</button>
+    </form>
+</div>
+
+<div class="results">
+    <% podcastResults.forEach(function(podcastResults) { %>
+        <a href="<%= podcastResults.audio %>">
+            <%= podcastResults.title_original %>
+        </a><br>
+        <% }); %>
+</div>
+</div>

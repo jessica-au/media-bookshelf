@@ -20,25 +20,29 @@ const db = require('../models')
 //     })
 
 // db.category.create({
-//     name: "Commute",
+//     name: "Shower Thoughts",
 //     userId: 1,
 // });
 
 // db.media.create({
 //     name: "star wars",
 //     userId: 1,
-//     categoryId: 2, 
+
 // });
 
 // db.media.create({
 //     name: "this american life",
 //     userId: 1,
-//     categoryId: 2, 
+  
 // });
 
 db.user.findOne({ where: 
     { id: 1}
 }).then(user => {
-    console.log(user.media);
-    console.log(user.category);
+    console.log('media', user.media);
+    console.log('category', user.category);
+    console.log(user);
 })
+//look at again TOMORROW
+// something wonky with assocations???????????????????????????????????????
+//how to hook up passport for get/post routes 

@@ -18,14 +18,23 @@ router.get('/', async (req, res) => {
         response = await response.toJSON();
         let podcastResults = response.body.results;
         // use the passport helper to pass a user to render
-        
-        db.category.findAll({where: {
-            userId: 1}}).then(response => {
-            res.render('categories', { podcastResults, 
-                categories: response,
-                user: { id: 1 } })
-        })
-        console.log(podcastResults[0])
+        if (req.user) {
+            db.category.findAll({
+                where: {
+                    userId: req.user.id
+                }
+            }).then(response => {
+                res.render('categories', {
+                    podcastResults,
+                    categories: response
+                })
+            })
+        }
+        else {
+            console.log('must be signed in to access this page');
+            res.redirect('auth/login')
+        }
+        //console.log(podcastResults[0])
     } catch (e) {
         console.log(e)
     }
@@ -34,11 +43,13 @@ router.get('/', async (req, res) => {
 //post methods
 
 router.post('/', (req, res) => {
-    console.log(req.body);
+    //console.log(req.body);
+    // req.body.userId is undefined
     db.category.create({
         name: req.body.category,
-        userId: req.body.userId
+        userId: req.user.id
     }).then(response => {
+        console.log('this is the response')
         console.log(response);
         res.redirect('/categories');
     })

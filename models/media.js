@@ -11,7 +11,8 @@ module.exports = (sequelize, DataTypes) => {
      */
     static associate(models) {
       // define association here
-      models.media.belongsToMany(models.category, {through: "categoriesMedias"})
+      models.media.belongsToMany(models.category, {through: "categoriesMedias"});
+      models.media.belongsTo(models.user)
     }
   };
   media.init({
