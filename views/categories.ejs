@@ -9,12 +9,15 @@
             <input type="text" name="category">
             <button type="submit">Create Category</button>
         </form>
-        
+
     </div>
-   <ol> <% categories.forEach(function(category) { %>
-        <li><%= category.name %></a></li>
+    <ol>
+        <% categories.forEach(function(category) { %>
+            <li>
+                <%= category.name %></a>
+            </li>
             <% }); %>
-        </ol> 
+    </ol>
 </div>
 
 
