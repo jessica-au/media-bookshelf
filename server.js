@@ -58,10 +58,13 @@ app.get('/profile', isLoggedIn, (req, res) => {
 });
 
 
+
 // Imports all routes from the auth routes file
 app.use('/auth', require('./controllers/auth'));
 
 app.use('/categories', require('./controllers/categories'));
+
+app.use('/media', require('./controllers/media'));
 
 
 

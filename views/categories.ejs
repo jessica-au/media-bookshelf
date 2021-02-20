@@ -1,8 +1,5 @@
 <div class="container">
     <h1 class="text-center">Your Podcast Categories</h1>
-    <p class="text-center">
-        <a href="/categories">Favorites</a>
-    </p>
     <div class="createCategories">
 
         <form method="POST" action="/categories">
@@ -20,20 +17,29 @@
     </ol>
 </div>
 
-
 <h1>Search Results</h1>
 <div id="searchwrap">
     <form id="search-form" name="Podcasts" action="/categories" method="get">
-        <input id="search-input" name="Search" type="text">
+        <input id="search-input" name="search" type="text">
         <button type="submit">Search</button>
     </form>
 </div>
 
 <div class="results">
-    <% podcastResults.forEach(function(podcastResults) { %>
-        <a href="<%= podcastResults.audio %>">
-            <%= podcastResults.title_original %>
-        </a><br>
-        <% }); %>
+    <ol>
+        <% podcastResults.forEach(function(podcastResults) { %>
+
+            <form method="POST" action="/media">
+                <input hidden value="<%= podcastResults.title_original %>" type="text" name="mediaName">
+                <input hidden value="<%= podcastResults.audio %>" type="text" name="mediaUrl">
+                <button type="submit">Save</button>
+            </form>
+            <li>
+                <a href="<%= podcastResults.audio %>">
+                    <%= podcastResults.title_original %>
+                </a>
+            </li>
+            <% }); %>
+    </ol>
 </div>
 </div>

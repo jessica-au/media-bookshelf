@@ -13,8 +13,9 @@ const category = require('../models/category');
 
 router.get('/', async (req, res) => {
     try {
+        // console.log(req)
         var listenNotesUrl = 'https://listen-api.listennotes.com/api/v2';
-        let response = await unirest.get('https://listen-api.listennotes.com/api/v2/search?q=star%20wars')
+        let response = await unirest.get(`https://listen-api.listennotes.com/api/v2/search?q=${req.query.search}`)
             .header('X-ListenAPI-Key', process.env.APIKEY)
         response = await response.toJSON();
         let podcastResults = response.body.results;

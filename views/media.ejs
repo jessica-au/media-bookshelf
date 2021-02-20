@@ -1,0 +1,13 @@
+Saved Media
+
+
+<% medias.forEach(function(media) { %>
+
+    <form method="POST" action="/category" >
+        <input hidden value="<%= medias %> " type="text" name="media">
+      
+    </form>
+        <a href="<%= media.mediaUrl%>">
+            <%= media.mediaName %>
+        </a>
+    <% }); %>
