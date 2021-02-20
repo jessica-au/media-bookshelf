@@ -15,7 +15,7 @@ router.get('/', async (req, res) => {
     try {
         var listenNotesUrl = 'https://listen-api.listennotes.com/api/v2';
         let response = await unirest.get('https://listen-api.listennotes.com/api/v2/search?q=star%20wars')
-            .header('X-ListenAPI-Key', APIKEY)
+            .header('X-ListenAPI-Key', process.env.APIKEY)
         response = await response.toJSON();
         let podcastResults = response.body.results;
         // use the passport helper to pass a user to render
