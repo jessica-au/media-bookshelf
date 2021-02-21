@@ -5,9 +5,10 @@ Saved Media
 
     <form method="POST" action="/category" >
         <input hidden value="<%= medias %> " type="text" name="media">
-      
+        <button type="submit" method="">Add to a Category</button> 
     </form>
-        <a href="<%= media.mediaUrl%>">
+       
+       <a href="<%= media.mediaUrl%>">
             <%= media.mediaName %>
         </a>
     <% }); %>

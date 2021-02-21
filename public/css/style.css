@@ -1,66 +1,65 @@
+body {
+width: 100%;
+margin: 0;
+}
+
 nav {
-position: absolute;
-width: 100%;
-height: 70px;
-left: 0px;
-top: 0px;
-background: #EBA947;
-}
- 
-ul li {
-
-float: left;
-display: inline;
+display:table;
 position: relative;
-padding: 5px;
-margin-left: 20px;
-height: 80px;
-font-family: Fugaz One, cursive;
-font-style: normal;
-font-weight: normal;
-font-size: 24px;
-line-height: 30px;
-
-}
-
-h1 {
-  color:darkcyan
-}
-
-h3 {
-position: absolute;
 width: 100%;
-height: 40px;
-left: 5%;
-top: 2%;
+height: 60px;
+background: #EBA947;
 font-family: Fugaz One, cursive;
-font-style: normal;
-font-weight: normal;
-line-height: 10px;
-color: #FFFFFF;
+color: white;
+}
+.title{
+font-size:36px;
+float: left;
+padding: 10px 30px;
+} 
+
+.loginnav {
+font-family: Fugaz One, cursive;
+color: white;
+position: inline;
+float: right;
+font-size: 18px;
+padding: 10px 10px;
+}
+.authlink {
+  padding: 10px;
+  color:white;
 }
 
 .usernav {
-position: absolute;
-left: 0px;
-top: 0px;
-width: 100%;
-height: 55px;
-left: 0px;
-top: 70px;
-background: #7EE1F7;
+position: relative;
 float: left;
+width: 100%;
+height: 40px;
+background: #6fcde2;
+font-family: Fugaz One, cursive;
+color: #FFFFFF;
 }
-
-li a {
-  display: block;
-}
-
-.loginnav {
-  float: right;
+.userlink {
+display: relative;
+position: inline;
+color: white;
+padding: 10px 10px;
+font-size: 24px;
 }
 
 .bodyElements {
-  margin-top: 300px;
-  
+background:rgb(204, 204, 204);
+width: 50%;
+padding: 5px 20px 20px 20px;
+margin: 10% 25% 5% 25%;
+border-radius: 15px 15px 15px 15px;
+border-style:solid;
+border-color:lightgray;
+font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+color:rgb(63, 62, 62);
+font-size:18px;
+
+
 }
+
