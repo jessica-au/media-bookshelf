@@ -1,0 +1,9 @@
+<%= currentCat.name %>
+
+    <% if (currentCat.medias) {%>
+        <% currentCat.medias.forEach(function(catMedia) { %>
+            <div>
+                <%= catMedia.mediaName %>
+            </div>
+            <% })%>
+                <% }%>

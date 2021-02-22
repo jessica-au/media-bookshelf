@@ -16,7 +16,7 @@
             <tr>
                 <td>
 
-                    <%= category.name %>
+                    <a href="/categories/<%= category.id %>"><%= category.name %></a>
                         <% if (category.medias) {%>
                             <% category.medias.forEach(function(catMedia) { %>
                                 <div>

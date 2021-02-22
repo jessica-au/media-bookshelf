@@ -10,7 +10,7 @@ const category = require('../models/category');
 // POST routes - posting relationship of category/media
 
 router.post('/', (req, res) => {
-    console.log(req.body);
+    //console.log(req.body);
     // db.categoriesMedias.create({
     //     mediaId: req.body.mediaId,
     //     categoryId: req.body.categoryId,
@@ -18,21 +18,23 @@ router.post('/', (req, res) => {
     // })
     // .then((createdCategoriesMedias) => {
     //     console.log('Created CategoriesMedias = ', createdCategoriesMedias);
-    //     res.redirect('/category')
+    //     res.redirect('/categories')
     // });
     db.category.findOne({
         where: {
             id: req.body.categoryId,
-    }}
+        }
+    }
     ).then((currentCategory) => {
         console.log('Created currentCategory = ', currentCategory);
-        db.media.findOne({ where: 
-                { id: req.body.mediaId}
-            }).then( (currentMedia) =>{
-                console.log('Created currentMedia = ', currentMedia);
-                currentCategory.addMedia(currentMedia)
-                res.redirect('/categories')
-            })
+        db.media.findOne({
+            where:
+                { id: req.body.mediaId }
+        }).then((currentMedia) => {
+            console.log('Created currentMedia = ', currentMedia);
+            currentCategory.addMedia(currentMedia).then((currentRel) =>
+                res.redirect('/categories'))
+        })
     });
 });
 

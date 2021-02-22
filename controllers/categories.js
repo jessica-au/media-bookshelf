@@ -56,7 +56,7 @@ router.post('/', (req, res) => {
 
 //PUT routes
 router.put('/:id', (req, res) => {
-    db.category.update({ name: req.body.name}, {
+    db.category.update({ name: req.body.name }, {
         where: {
             id: req.params.id
         }
@@ -64,6 +64,16 @@ router.put('/:id', (req, res) => {
         console.log('Updated Category = ', updatedCategory);
         res.redirect('/category')
     })
+})
+
+router.get('/:id', (req, res) => {
+    db.category.findOne({
+        where: { id: req.params.id }
+    })
+        .then((currentCat) => {
+            console.log(currentCat.media);
+            res.render('categories/show', { currentCat });
+        })
 })
 
 
