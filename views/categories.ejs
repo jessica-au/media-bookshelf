@@ -8,18 +8,26 @@
         </form>
 
     </div>
-    <ol>
+    <table>
+        <tr>
+            <th>Categories</th>
+        </tr>
         <% categories.forEach(function(category) { %>
-            <li>
-                <%= category.name %>
-                <% if (category.medias) {%>
-                    <% category.medias.forEach(function(catMedia) { %>
-                        <div><%= catMedia.mediaName %></div>
-                    <% })%>
-                <% }%>
-            </li>
+            <tr>
+                <td>
+
+                    <%= category.name %>
+                        <% if (category.medias) {%>
+                            <% category.medias.forEach(function(catMedia) { %>
+                                <div>
+                                    <%= catMedia.mediaName %>
+                                </div>
+                                <% })%>
+                                    <% }%>
+                </td>
+            </tr>
             <% }); %>
-    </ol>
+    </table>
 </div>
 
 <h1>Search Results</h1>
@@ -31,20 +39,28 @@
 </div>
 
 <div class="results">
-    <ol>
+    <table>
+        <tr>
+            <th></th>
+            <th>Results</th>
+        </tr>
         <% podcastResults.forEach(function(podcastResults) { %>
+            <tr>
+                <td>
 
-            <form method="POST" action="/media">
-                <input hidden value="<%= podcastResults.title_original %>" type="text" name="mediaName">
-                <input hidden value="<%= podcastResults.audio %>" type="text" name="mediaUrl">
-                <button type="submit">Save</button>
-            </form>
-            <li>
-                <a href="<%= podcastResults.audio %>">
-                    <%= podcastResults.title_original %>
-                </a>
-            </li>
+                    <form method="POST" action="/media">
+                        <input hidden value="<%= podcastResults.title_original %>" type="text" name="mediaName">
+                        <input hidden value="<%= podcastResults.audio %>" type="text" name="mediaUrl">
+                        <button type="submit">Save</button>
+                    </form>
+                </td>
+                <td>
+                    <a href="<%= podcastResults.audio %>">
+                        <%= podcastResults.title_original %>
+                    </a>
+                </td>
+            </tr>
             <% }); %>
-    </ol>
+    </table>
 </div>
 </div>

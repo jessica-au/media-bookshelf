@@ -50,16 +50,26 @@ font-size: 24px;
 
 .bodyElements {
 background:rgb(204, 204, 204);
-width: 50%;
-padding: 5px 20px 20px 20px;
-margin: 10% 25% 5% 25%;
+width: 70%;
+
+margin: 5% 15% 5% 15%;
 border-radius: 15px 15px 15px 15px;
 border-style:solid;
 border-color:lightgray;
 font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
 color:rgb(63, 62, 62);
 font-size:18px;
+}
 
+table {
+  width: 100%;
+}
+tr:nth-child(even) {
+  background-color: #dddddd;
+}
+
+td {
+  padding: 8px 8px;
 
 }
 
