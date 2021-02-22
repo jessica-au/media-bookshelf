@@ -28,6 +28,11 @@
                 <button type="submit">Submit</button> 
             </td>
         </form>
+        <td>
+            <form method="post" action="/media/<%=media.id%>?_method=DELETE">
+                <button type="submit">Delete</button>
+            </form>
+        </td>
         </tr>    
     <% }); %>
 </table>

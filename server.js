@@ -5,10 +5,12 @@ const session = require('express-session');
 const passport = require('./config/ppConfig'); //
 const flash = require('connect-flash');
 const unirest = require('unirest');
+const methodOverride = require('method-override')
 
 
 const app = express();
 app.set('view engine', 'ejs');
+app.use(methodOverride('_method'))
 
 // Session 
 const APIKEY = process.env.APIKEY
