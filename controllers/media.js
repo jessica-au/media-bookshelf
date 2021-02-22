@@ -61,5 +61,18 @@ router.put('/:id', (req, res) => {
 })
 
 
+//DELETE routes
+router.delete('/:id', (req, res) => {
+    db.media.destroy({
+        where: {
+            id: req.params.id
+        }
+    })
+        .then((deleted) => {
+            console.log('Deleted Media = ', deleted);
+            res.redirect('/media');
+        })
+})
+
 
 module.exports = router;

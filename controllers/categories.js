@@ -69,14 +69,14 @@ router.put('/:id', (req, res) => {
 
 //DELETE routes
 router.delete('/:id', (req, res) => {
-    db.media.destroy({
+    db.category.destroy({
         where: {
             id: req.params.id
         }
     })
         .then((deleted) => {
-            console.log('Deleted Media = ', deleted);
-            res.redirect('/media');
+            console.log('Deleted Category = ', deleted);
+            res.redirect('/categories');
         })
 })
 

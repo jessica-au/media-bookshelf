@@ -11,7 +11,12 @@
     <ol>
         <% categories.forEach(function(category) { %>
             <li>
-                <%= category.name %></a>
+                <%= category.name %>
+                <% if (category.medias) {%>
+                    <% category.medias.forEach(function(catMedia) { %>
+                        <div><%= catMedia.mediaName %></div>
+                    <% })%>
+                <% }%>
             </li>
             <% }); %>
     </ol>

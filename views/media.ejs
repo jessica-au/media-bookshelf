@@ -1,20 +1,33 @@
 Saved Media
 
-
+<table>
+    <tr>
+        <th>Name</th>
+        <th>Add to</th>
+        <th></th>
+    </tr>
 <% medias.forEach(function(media) { %>
+    <tr>
+        <td>
+            <a href="<%= media.mediaUrl%>">
+                <%= media.mediaName %>
+            </a>
+        </td>
 
-    <form method="POST" action="/categoriesMedias">
-        <input hidden value="<%= media.id %> " type="text" name="mediaId">
-        <label for="categoryId">Select a Category</label>
-        <select id="categoryId" name="categoryId" multiple>
-            <% categories.forEach(function(category) { %>
-                <option value="<%= category.id %>"><%= category.name %></option>
-            <%}) %>
-        </select>
-        <button type="submit">Add to a Category</button> 
-    </form>
-       
-       <a href="<%= media.mediaUrl%>">
-            <%= media.mediaName %>
-        </a>
+        <form method="POST" action="/categoriesMedias">
+            <input hidden value="<%= media.id %> " type="text" name="mediaId">
+            <td>
+                <select id="categoryId" name="categoryId">
+                    <% categories.forEach(function(category) { %>
+                        <option value="<%= category.id %>"><%= category.name %></option>
+                    <%}) %>
+                </select>
+            </td>
+            
+            <td>
+                <button type="submit">Submit</button> 
+            </td>
+        </form>
+        </tr>    
     <% }); %>
+</table>
