@@ -65,13 +65,16 @@ router.put('/:id', (req, res) => {
         res.redirect('/category')
     })
 })
-
+// GET routes - find category details, console log, render to show page
 router.get('/:id', (req, res) => {
     db.category.findOne({
-        where: { id: req.params.id }
+        where: { id: req.params.id },
+        include: [db.podcast]
     })
         .then((currentCat) => {
-            console.log(currentCat.media);
+            console.log("name", currentCat.name);
+            console.log("podcasts", currentCat.podcasts);
+            console.log("podcast", currentCat.podcast);
             res.render('categories/show', { currentCat });
         })
 })

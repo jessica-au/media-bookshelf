@@ -52,7 +52,7 @@ app.use('/auth', require('./controllers/auth'));
 
 app.get('/', (req, res) => {
   res.render('index');
-  
+
 });
 
 app.get('/profile', isLoggedIn, (req, res) => {
@@ -70,9 +70,9 @@ app.use('/auth', require('./controllers/auth'));
 
 app.use('/categories', require('./controllers/categories'));
 
-app.use('/media', require('./controllers/media'));
+app.use('/podcasts', require('./controllers/podcasts'));
 
-app.use('/categoriesMedias', require('./controllers/categoriesMedias'));
+app.use('/categoriesPodcasts', require('./controllers/categoriesPodcasts'));
 
 
 

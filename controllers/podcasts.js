@@ -10,18 +10,18 @@ const category = require('../models/category');
 //GET routes
 router.get('/', (req, res) => {
     if (req.user) {
-        db.media.findAll({
+        db.podcast.findAll({
             where: {
                 userId: req.user.id
             }
-        }).then(mediaResponse => {
+        }).then(podcastsResponse => {
             db.category.findAll({
                 where: {
                     userId: req.user.id
                 }
             }).then((categoryResponse) => {
-                res.render('media', {
-                    medias: mediaResponse,
+                res.render('podcasts', {
+                    podcasts: podcastsResponse,
                     categories: categoryResponse,
                 })
             })
@@ -35,42 +35,42 @@ router.get('/', (req, res) => {
 
 })
 
-//POST routes - posting new media to database
+//POST routes - posting new podcast to database
 router.post('/', (req, res) => {
     console.log(req.body);
-    db.media.create({
-        mediaName: req.body.mediaName,
-        mediaUrl: req.body.mediaUrl,
+    db.podcast.create({
+        podcastName: req.body.podcastName,
+        podcastUrl: req.body.podcastUrl,
         userId: req.user.id,
     }).then((response) =>
-        res.redirect('/media')
+        res.redirect('/podcasts')
     )
 })
 
 
-//PUT routes - changing/updating media name
+//PUT routes - changing/updating podcast name
 router.put('/:id', (req, res) => {
-    db.media.update({ mediaName: req.body.name }, {
+    db.podcast.update({ podcastName: req.body.name }, {
         where: {
             id: req.params.id
         }
-    }).then((updatedMedia) => {
-        console.log('Updated Media = ', updatedMedia);
-        res.redirect('/media');
+    }).then((updatedPodcast) => {
+        console.log('Updated podcast = ', updatedPodcast);
+        res.redirect('/podcasts');
     })
 })
 
 
 //DELETE routes
 router.delete('/:id', (req, res) => {
-    db.media.destroy({
+    db.podcast.destroy({
         where: {
             id: req.params.id
         }
     })
         .then((deleted) => {
-            console.log('Deleted Media = ', deleted);
-            res.redirect('/media');
+            console.log('Deleted Podcast = ', deleted);
+            res.redirect('/podcasts');
         })
 })
 

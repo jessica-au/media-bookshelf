@@ -24,14 +24,14 @@ const db = require('../models')
 //     userId: 1,
 // });
 
-// db.media.create({
-//     mediaName: "star wars",
+// db.podcast.create({
+//     podcastName: "star wars",
 //     userId: 1,
 
 // });
 
-// db.media.create({
-//     mediaName: "this american life",
+// db.podcast.create({
+//     podcastName: "this american life",
 //     userId: 1,
   
 // });
@@ -39,7 +39,7 @@ const db = require('../models')
 // db.user.findOne({ where: 
 //     { id: 1}
 // }).then(user => {
-//     console.log('media', user.media);
+//     console.log('podcasts', user.podcasts);
 //     console.log('category', user.category);
 //     console.log(user);
 // })

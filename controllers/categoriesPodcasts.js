@@ -7,17 +7,17 @@ require('dotenv').config();
 const db = require('../models');
 const category = require('../models/category');
 
-// POST routes - posting relationship of category/media
+// POST routes - posting relationship of category/podcast
 
 router.post('/', (req, res) => {
     //console.log(req.body);
-    // db.categoriesMedias.create({
-    //     mediaId: req.body.mediaId,
+    // db.categoriesPodcasts.create({
+    //     podcastId: req.body.podcastId,
     //     categoryId: req.body.categoryId,
     //     userId: req.user.id,
     // })
-    // .then((createdCategoriesMedias) => {
-    //     console.log('Created CategoriesMedias = ', createdCategoriesMedias);
+    // .then((createdCategoriesPodcasts) => {
+    //     console.log('Created CategoriesPodcasts = ', createdCategoriesPodcasts);
     //     res.redirect('/categories')
     // });
     db.category.findOne({
@@ -27,13 +27,18 @@ router.post('/', (req, res) => {
     }
     ).then((currentCategory) => {
         console.log('Created currentCategory = ', currentCategory);
-        db.media.findOne({
+        
+        db.podcast.findOne({
             where:
-                { id: req.body.mediaId }
-        }).then((currentMedia) => {
-            console.log('Created currentMedia = ', currentMedia);
-            currentCategory.addMedia(currentMedia).then((currentRel) =>
-                res.redirect('/categories'))
+                { id: req.body.podcastId }
+        }).then((currentPodcast) => {
+            console.log('Created currentPodcast = ', currentPodcast);
+            
+            currentCategory.addPodcast(currentPodcast).then((currentRel) => {
+                console.log('Created currentRel = ', currentRel);
+
+                res.redirect('/categories')
+            })
         })
     });
 });

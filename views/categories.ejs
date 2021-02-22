@@ -17,9 +17,9 @@
             <tr>
                 <td>
                     
-                    <form method="POST" action="/media">
-                        <input hidden value="<%= podcastResults.title_original %>" type="text" name="mediaName">
-                        <input hidden value="<%= podcastResults.audio %>" type="text" name="mediaUrl">
+                    <form method="POST" action="/podcasts">
+                        <input hidden value="<%= podcastResults.title_original %>" type="text" name="podcastName">
+                        <input hidden value="<%= podcastResults.audio %>" type="text" name="podcastUrl">
                         <button type="submit">Save</button>
                     </form>
                 </td>
@@ -51,10 +51,10 @@
                     <td>
                         
                         <a href="/categories/<%= category.id %>"><%= category.name %></a>
-                        <% if (category.medias) {%>
-                            <% category.medias.forEach(function(catMedia) { %>
+                        <% if (category.podcasts) {%>
+                            <% category.podcasts.forEach(function(catPodcast) { %>
                                 <div>
-                                    <%= catMedia.mediaName %>
+                                    <%= catPodcast.podcastName %>
                                 </div>
                                 <% })%>
                                 <% }%>

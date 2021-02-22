@@ -1,9 +1,21 @@
-<%= currentCat.name %>
+<table>
+    <tr>
+        <th>Categories</th>
+    </tr>
 
-    <% if (currentCat.medias) {%>
-        <% currentCat.medias.forEach(function(catMedia) { %>
-            <div>
-                <%= catMedia.mediaName %>
-            </div>
-            <% })%>
-                <% }%>
+    <tr>
+        <td>
+            <%= currentCat.name %>
+
+                <% if (currentCat.podcasts) { %>
+                    <% currentCat.podcasts.forEach(function(catPodcast) { %>
+                        <div>
+                            <a href="<%= catPodcast.podcastUrl %>">
+                                <%= catPodcast.podcastName %>
+                            </a>
+                        </div>
+                        <% })%>
+               <% }%>
+        </td>
+    </tr>
+</table>
