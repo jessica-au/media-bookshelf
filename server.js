@@ -66,6 +66,8 @@ app.use('/categories', require('./controllers/categories'));
 
 app.use('/media', require('./controllers/media'));
 
+app.use('/categoriesMedias', require('./controllers/categoriesMedias'));
+
 
 
 const PORT = process.env.PORT || 3000;

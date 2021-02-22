@@ -7,10 +7,7 @@ require('dotenv').config();
 const db = require('../models');
 const category = require('../models/category');
 
-// router.get('/', (req, res) => {
-//    // res.render('categories')
-// });
-
+//GET routes
 router.get('/', async (req, res) => {
     try {
         // console.log(req)
@@ -42,7 +39,7 @@ router.get('/', async (req, res) => {
     }
 });
 
-//post methods
+//POST routes
 
 router.post('/', (req, res) => {
     //console.log(req.body);
@@ -55,6 +52,32 @@ router.post('/', (req, res) => {
         console.log(response);
         res.redirect('/categories');
     })
+})
+
+//PUT routes
+router.put('/:id', (req, res) => {
+    db.category.update({ name: req.body.name}, {
+        where: {
+            id: req.params.id
+        }
+    }).then((updatedCategory) => {
+        console.log('Updated Category = ', updatedCategory);
+        res.redirect('/category')
+    })
+})
+
+
+//DELETE routes
+router.delete('/:id', (req, res) => {
+    db.media.destroy({
+        where: {
+            id: req.params.id
+        }
+    })
+        .then((deleted) => {
+            console.log('Deleted Media = ', deleted);
+            res.redirect('/media');
+        })
 })
 
 
