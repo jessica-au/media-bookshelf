@@ -40,7 +40,6 @@
                 <input type="text" name="category">
                 <button type="submit">Create Category</button>
             </form>
-            
         </div>
         <table>
             <tr>
@@ -49,7 +48,6 @@
             <% categories.forEach(function(category) { %>
                 <tr>
                     <td>
-                        
                         <a href="/categories/<%= category.id %>"><%= category.name %></a>
                         <% if (category.podcasts) {%>
                             <% category.podcasts.forEach(function(catPodcast) { %>

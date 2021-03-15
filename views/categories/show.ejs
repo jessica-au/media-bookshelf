@@ -1,21 +1,23 @@
+<h1>
+    <%= currentCat.name %>
+</h1>
 <table>
     <tr>
-        <th>Categories</th>
+        <th>Added Podcasts</th>
     </tr>
 
     <tr>
         <td>
-            <%= currentCat.name %>
 
-                <% if (currentCat.podcasts) { %>
-                    <% currentCat.podcasts.forEach(function(catPodcast) { %>
-                        <div>
-                            <a href="<%= catPodcast.podcastUrl %>">
-                                <%= catPodcast.podcastName %>
-                            </a>
-                        </div>
-                        <% })%>
-               <% }%>
+            <% if (currentCat.podcasts) { %>
+                <% currentCat.podcasts.forEach(function(catPodcast) { %>
+                    <div>
+                        <a href="<%= catPodcast.podcastUrl %>">
+                            <%= catPodcast.podcastName %>
+                        </a>
+                    </div>
+                    <% })%>
+                        <% }%>
         </td>
     </tr>
 </table>
